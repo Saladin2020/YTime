@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="navy">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>หน้าหลัก</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content class="bg">
+
+
+  <ion-card *ngFor="let item of items">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/user.png">
+      </ion-avatar>
+      <h2>{{item.news_author}}</h2>
+      <p>{{item.news_postDate}}</p>
+    </ion-item>
+
+    <img [src]="item.news_imagePath">
+
+    <ion-card-content>
+      <h1>{{item.news_title}}</h1>
+      <p>{{item.news_description}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <!--<ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 ถูกใจ</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="book"></ion-icon>
+          <div>อ่านต่อ</div>
+        </button>
+      </ion-col>-->
+    </ion-row>
+
+  </ion-card>
+
+
+  <!--<ion-list>
+      <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+        <ion-icon [name]="item.icon" item-start></ion-icon>
+        {{item.title}}
+        <div class="item-note" item-end>
+          {{item.note}}
+        </div>
+      </button>
+    </ion-list>
+    <div *ngIf="selectedItem" padding>
+      You navigated here from
+      <b>{{selectedItem.title}}</b>
+    </div>-->
+</ion-content>

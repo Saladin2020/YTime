@@ -1,0 +1,34 @@
+<ion-menu [content]="content" *ngIf="sideShow">
+  <ion-header>
+    <ion-toolbar color="navy">
+      <div padding>
+        <img [src]="profileImage" class="circle-pic">
+        <h3>
+          <font color="white">{{profileName}}</font>
+        </h3>
+        <p>
+          <font color="white">UDID : {{udidNum}}</font>
+        </p>
+        <button ion-button small color="danger" (click)="register()">
+          <ion-icon name="warning"> register</ion-icon>
+        </button>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name={{p.iconlist}}></ion-icon> {{p.title}}
+      </button>
+      <button menuClose ion-item (click)="logoutConfirm()">
+        <ion-icon name="log-out"></ion-icon> ออกจากระบบ</button>
+      <!--<button menuClose ion-item (click)="clearToken()"><ion-icon name="log-out"> clear</ion-icon></button>-->
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
